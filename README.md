@@ -27,7 +27,7 @@ make backup!
 
 update package list and install python package
 ```
-apt-get update && apt-get install postfix-policyd-spf-python
+apt-get update && apt-get install -y postfix-policyd-spf-python
 ```
 
 configure postfix
