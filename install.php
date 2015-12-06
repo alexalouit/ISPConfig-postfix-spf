@@ -78,7 +78,7 @@ exec("apt-get update && apt-get install -y postfix-policyd-spf-python");
 echo "Configure postfix\n";
 exec("postconf -e 'policy-spf_time_limit = 3600s'");
 exec("postconf -e \"smtpd_recipient_restrictions=$(postconf -d smtpd_recipient_restrictions | cut -c32-), check_policy_service unix:private/policy-spf\"");
-exec("echo -e 'policy-spf  unix  -       n       n       -       -       spawn\n  user=nobody argv=/usr/sbin/policyd-spf' >> /etc/postfix/master.cf");
+exec("echo -e 'policy-spf  unix  -       n       n       -       -       spawn\n  user=nobody argv=/usr/bin/policyd-spf' >> /etc/postfix/master.cf");
 
 // reload postfix
 echo "Install completed, postfix reloading..\n";

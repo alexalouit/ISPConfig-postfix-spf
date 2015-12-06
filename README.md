@@ -34,7 +34,7 @@ configure postfix
 ```
 postconf -e 'policy-spf_time_limit = 3600s'
 postconf -e "smtpd_recipient_restrictions=$(postconf -d smtpd_recipient_restrictions | cut -c32-), check_policy_service unix:private/policy-spf"
-echo -e 'policy-spf  unix  -       n       n       -       -       spawn\n  user=nobody argv=/usr/sbin/policyd-spf' >> /etc/postfix/master.cf
+echo -e 'policy-spf  unix  -       n       n       -       -       spawn\n  user=nobody argv=/usr/bin/policyd-spf' >> /etc/postfix/master.cf
 ```
 
 reload postfix
